@@ -107,7 +107,7 @@ export default class MediaPlayerView extends React.Component {
 
     return (
       <View
-        style={this.props.style}
+        style={[{flex: 1, alignSelf: 'stretch'}, this.props.style]}
         onLayout={this._onLayout.bind(this)}>
 
         <RCTMediaPlayerView
