@@ -9,6 +9,7 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -51,6 +52,10 @@ public class ReactMediaPlayerViewManager extends SimpleViewManager<ReactMediaPla
   @ReactProp(name = "src")
   public void setSrc(ReactMediaPlayerView view, @Nullable String uri) {
     Log.d(TAG, "setSrc...src=" + uri);
+    String resourcePrefix = "resource:";
+    if (uri.startsWith(resourcePrefix)) {
+      uri = "asset:///" + uri.substring(resourcePrefix.length());
+    }
     view.setUri(uri);
   }
 
