@@ -114,13 +114,17 @@ export default class Controls extends React.Component {
       }
     );
 
+    if (!this.props.displayControls) {
+      return <View/>
+    }
+
 
     return (
       <View
         style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
         {bufferIndicator}
         <View
-          style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 40, backgroundColor: '#00000033', flexDirection: 'row'}}>
+          style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: 40, backgroundColor: '#00B09A', flexDirection: 'row'}}>
 
           <TouchableOpacity
             onPress={this.props.onPauseOrPlay}

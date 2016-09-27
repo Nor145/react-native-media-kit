@@ -88,6 +88,7 @@ export default class MediaPlayerView extends React.Component {
     if (this.props.controls) {
       controlsView = (
         <Controls
+          displayControls={this.props.displayControls}
           buffering={this.state.buffering}
           playing={this.state.playing}
           current={this.state.current}
